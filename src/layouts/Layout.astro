@@ -1,0 +1,71 @@
+---
+import '@fontsource/inter/300.css';
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/500.css';
+import '@fontsource/inter/600.css';
+import '@fontsource/inter/700.css';
+import '@fontsource/dm-serif-display/400.css';
+import '@fontsource/dm-serif-display/400-italic.css';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Orbit — Creative Director & Brand Strategist',
+  description = 'Creative Director & Brand Strategist building visual identities for ambitious companies worldwide. 12+ years shaping brands that resonate and endure.',
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalURL} />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:site_name" content="Orbit Studio" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+
+  <meta name="generator" content={Astro.generator} />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Orbit Studio",
+    "description": description,
+    "url": "https://orbitstudio.co",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "47 Wythe Avenue",
+      "addressLocality": "Brooklyn",
+      "addressRegion": "NY",
+      "postalCode": "11249",
+      "addressCountry": "US"
+    },
+    "founder": {
+      "@type": "Person",
+      "name": "Marcus Webb",
+      "jobTitle": "Creative Director"
+    }
+  })} />
+</head>
+<body class="bg-white text-neutral-900 antialiased overflow-x-hidden">
+  <slot />
+</body>
+</html>

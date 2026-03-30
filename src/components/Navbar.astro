@@ -1,0 +1,72 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-neutral-100">
+  <div class="max-w-[1400px] mx-auto px-8 h-16 flex items-center justify-between">
+    <a href="#" class="flex items-center gap-2 text-sm font-semibold tracking-tighter">
+      <Icon name="solar:black-hole-linear" size={18} />
+      <span>Ob</span>
+    </a>
+
+    <div class="hidden md:flex items-center gap-9 text-sm text-neutral-500 font-normal">
+      <a href="#portfolio" class="nav-link hover:text-neutral-900 transition-colors pb-0.5">Work</a>
+      <a href="#services" class="nav-link hover:text-neutral-900 transition-colors pb-0.5">Services</a>
+      <a href="#about" class="nav-link hover:text-neutral-900 transition-colors pb-0.5">Studio</a>
+      <a href="#experience" class="nav-link hover:text-neutral-900 transition-colors pb-0.5">Journal</a>
+    </div>
+
+    <a
+      href="mailto:hello@orbitstudio.co?subject=New%20Project%20Inquiry"
+      class="hidden md:inline-flex text-sm border border-neutral-200 rounded-full px-5 py-2 text-neutral-700 hover:bg-neutral-900 hover:text-white hover:border-neutral-900 transition-all duration-300 font-normal"
+    >
+      Start a Project
+    </a>
+
+    <button
+      id="menuBtn"
+      class="md:hidden flex items-center justify-center w-9 h-9"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+    >
+      <Icon name="solar:hamburger-menu-linear" size={22} />
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div
+    id="mobileMenu"
+    class="hidden md:hidden bg-white/95 backdrop-blur-md border-b border-neutral-100"
+  >
+    <div class="max-w-[1400px] mx-auto px-8 py-6 flex flex-col gap-4">
+      <a href="#portfolio" class="text-sm text-neutral-600 hover:text-neutral-900 transition-colors mobile-nav-link">Work</a>
+      <a href="#services" class="text-sm text-neutral-600 hover:text-neutral-900 transition-colors mobile-nav-link">Services</a>
+      <a href="#about" class="text-sm text-neutral-600 hover:text-neutral-900 transition-colors mobile-nav-link">Studio</a>
+      <a href="#experience" class="text-sm text-neutral-600 hover:text-neutral-900 transition-colors mobile-nav-link">Journal</a>
+      <a
+        href="mailto:hello@orbitstudio.co?subject=New%20Project%20Inquiry"
+        class="mt-2 text-sm border border-neutral-200 rounded-full px-5 py-2.5 text-neutral-700 hover:bg-neutral-900 hover:text-white hover:border-neutral-900 transition-all duration-300 font-normal text-center"
+      >
+        Start a Project
+      </a>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const btn = document.getElementById('menuBtn');
+  const menu = document.getElementById('mobileMenu');
+
+  btn?.addEventListener('click', () => {
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    menu?.classList.toggle('hidden');
+  });
+
+  document.querySelectorAll('.mobile-nav-link').forEach((link) => {
+    link.addEventListener('click', () => {
+      menu?.classList.add('hidden');
+      btn?.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>

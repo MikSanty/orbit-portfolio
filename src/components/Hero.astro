@@ -1,0 +1,59 @@
+---
+import { Icon } from 'astro-icon/components';
+import WebGLScene from './WebGLScene.astro';
+---
+
+<section class="min-h-screen flex flex-col justify-end relative overflow-hidden bg-white pt-16">
+  <WebGLScene />
+
+  <div class="absolute inset-0 z-0 parallax-bg" id="heroBg">
+    <div class="img-reveal-wrapper w-full h-full">
+      <img
+        src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1600&q=80"
+        alt="Marcus Webb"
+        class="w-full h-full object-cover object-top grayscale opacity-5 img-reveal-inner scale-110"
+        id="heroBgImg"
+        loading="eager"
+        decoding="async"
+      />
+    </div>
+  </div>
+
+  <div class="relative z-10 max-w-[1400px] mx-auto px-8 pb-16 w-full">
+    <div class="mb-10 flex items-center gap-2">
+      <span class="w-2 h-2 rounded-full bg-emerald-500 inline-block"></span>
+      <span class="tag-pill" style="border:none; padding:0; font-size:0.65rem; letter-spacing:0.12em; text-transform:uppercase; color:#737373;">Open for commissions</span>
+    </div>
+
+    <div class="hero-title text-neutral-900 mb-12">
+      <div class="line-mask"><span class="reveal-word inline-block serif" data-hero="">Creative</span></div>
+      <div class="line-mask flex items-end gap-6 flex-wrap">
+        <span class="reveal-word inline-block serif" data-hero="">Director</span>
+        <span class="reveal-word inline-block" data-hero="" style="font-size: clamp(1rem, 2.5vw, 1.75rem); font-weight:300; color:#737373; margin-bottom: clamp(0.6rem, 1.2vw, 1.2rem); letter-spacing:-0.01em; max-width:260px; line-height:1.4;">Shaping brands that resonate and endure</span>
+      </div>
+    </div>
+
+    <div class="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 pt-10 border-t border-neutral-200">
+      <div class="flex items-center gap-8">
+        <div>
+          <p class="text-xs uppercase tracking-widest text-neutral-400 mb-1">Based in</p>
+          <p class="text-sm font-medium">Brooklyn, NY</p>
+        </div>
+        <div class="w-px h-8 bg-neutral-200"></div>
+        <div>
+          <p class="text-xs uppercase tracking-widest text-neutral-400 mb-1">Experience</p>
+          <p class="text-sm font-medium">12+ Years</p>
+        </div>
+        <div class="w-px h-8 bg-neutral-200"></div>
+        <div>
+          <p class="text-xs uppercase tracking-widest text-neutral-400 mb-1">Projects</p>
+          <p class="text-sm font-medium">580+</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2 text-sm text-neutral-500">
+        <span>Scroll to explore</span>
+        <Icon name="solar:arrow-down-bold-duotone" size={16} />
+      </div>
+    </div>
+  </div>
+</section>

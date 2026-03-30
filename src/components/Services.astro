@@ -1,0 +1,60 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<section id="services" class="max-w-[1400px] mx-auto px-8 py-28 border-t border-neutral-100 reveal-section">
+  <div class="mb-12">
+    <span class="tag-pill">Services</span>
+  </div>
+  <div class="grid md:grid-cols-12 gap-10 mb-16">
+    <div class="md:col-span-6">
+      <h2 class="section-title serif reveal-text">What I bring to the table</h2>
+    </div>
+    <div class="md:col-span-4 md:col-start-9 flex flex-col justify-end">
+      <p class="text-base text-neutral-500 leading-relaxed reveal-fade">End-to-end creative capabilities &mdash; from first sketch to final launch, every detail shaped with purpose.</p>
+      <button class="mt-6 self-start text-sm border border-neutral-900 rounded-full px-5 py-2.5 text-neutral-900 hover:bg-neutral-900 hover:text-white transition-all duration-300 font-normal reveal-fade">View All Services</button>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-neutral-200 rounded-3xl overflow-hidden">
+    <div class="service-card bg-white p-10 flex flex-col justify-between min-h-56 group cursor-none">
+      <div class="flex items-start justify-between">
+        <h3 class="text-xl font-semibold">Brand Strategy</h3>
+        <div class="w-9 h-9 bg-neutral-100 rounded-full flex items-center justify-center group-hover:bg-neutral-900 group-hover:text-white transition-all duration-300">
+          <Icon name="solar:arrow-right-bold-duotone" size={16} />
+        </div>
+      </div>
+      <p class="text-sm text-neutral-500 mt-6 leading-relaxed max-w-xs">Foundational research and positioning that gives your brand a clear voice, distinct personality, and competitive edge in any market.</p>
+    </div>
+
+    <div class="service-card bg-white p-10 flex flex-col justify-between min-h-56 group cursor-none">
+      <div class="flex items-start justify-between">
+        <h3 class="text-xl font-semibold">Visual Identity</h3>
+        <div class="w-9 h-9 bg-neutral-100 rounded-full flex items-center justify-center group-hover:bg-neutral-900 group-hover:text-white transition-all duration-300">
+          <Icon name="solar:arrow-right-bold-duotone" size={16} />
+        </div>
+      </div>
+      <p class="text-sm text-neutral-500 mt-6 leading-relaxed max-w-xs">Logos, type systems, color palettes, and design guidelines that unify every touchpoint into a cohesive brand experience.</p>
+    </div>
+
+    <div class="bg-neutral-950 text-white p-10 flex flex-col justify-between min-h-56 group cursor-none">
+      <div class="flex items-start justify-between">
+        <h3 class="text-xl font-semibold text-white">Digital Products</h3>
+        <div class="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center group-hover:bg-white group-hover:text-neutral-900 transition-all duration-300">
+          <Icon name="solar:arrow-right-up-bold-duotone" size={16} class="text-white group-hover:text-neutral-900" />
+        </div>
+      </div>
+      <p class="text-sm text-neutral-400 mt-6 leading-relaxed max-w-xs">UI/UX design for web and mobile platforms &mdash; intuitive interfaces backed by user research, prototyping, and meticulous craft.</p>
+    </div>
+
+    <div class="service-card bg-white p-10 flex flex-col justify-between min-h-56 group cursor-none">
+      <div class="flex items-start justify-between">
+        <h3 class="text-xl font-semibold">Motion &amp; 3D</h3>
+        <div class="w-9 h-9 bg-neutral-100 rounded-full flex items-center justify-center group-hover:bg-neutral-900 group-hover:text-white transition-all duration-300">
+          <Icon name="solar:arrow-right-bold-duotone" size={16} />
+        </div>
+      </div>
+      <p class="text-sm text-neutral-500 mt-6 leading-relaxed max-w-xs">Animated brand assets, explainer videos, and three-dimensional visuals that bring your product narrative to life on screen.</p>
+    </div>
+  </div>
+</section>

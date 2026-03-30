@@ -1,0 +1,29 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const brands = [
+  'simple-icons:nasa',
+  'simple-icons:spacex',
+  'simple-icons:uber',
+  'simple-icons:visa',
+  'simple-icons:grab',
+  'simple-icons:bose',
+  'simple-icons:discover',
+  'simple-icons:dji',
+  'simple-icons:nikon',
+  'simple-icons:craftsman',
+  'simple-icons:sony',
+];
+---
+
+<div class="border-y border-neutral-100 py-12 overflow-hidden bg-white">
+  <div class="marquee-track marquee">
+    {[0, 1].map(() => (
+      <div class="flex items-center gap-24 px-12 opacity-40 grayscale hover:grayscale-0 transition-all duration-500">
+        {brands.map((icon) => (
+          <Icon name={icon} size={64} />
+        ))}
+      </div>
+    ))}
+  </div>
+</div>

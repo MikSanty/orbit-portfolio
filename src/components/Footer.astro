@@ -1,0 +1,53 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<footer class="bg-neutral-950 border-t border-neutral-800 text-white">
+  <div class="max-w-[1400px] mx-auto px-8 py-16 grid grid-cols-2 md:grid-cols-5 gap-10">
+    <div class="col-span-2">
+      <a href="#" class="flex items-center gap-2 text-sm font-semibold tracking-tighter text-white mb-4">
+        <Icon name="solar:black-hole-linear" size={18} />
+        <span>Ob</span>
+      </a>
+      <p class="text-sm text-neutral-500 leading-relaxed max-w-xs">Creative Director &amp; Brand Strategist building visual identities for ambitious companies worldwide.</p>
+      <div class="flex items-center gap-3 mt-6">
+        <a href="#" class="w-9 h-9 rounded-full bg-neutral-800 flex items-center justify-center hover:bg-neutral-700 transition-colors" aria-label="X (Twitter)">
+          <Icon name="simple-icons:x" size={14} class="text-white" />
+        </a>
+        <a href="#" class="w-9 h-9 rounded-full bg-neutral-800 flex items-center justify-center hover:bg-neutral-700 transition-colors" aria-label="Instagram">
+          <Icon name="simple-icons:instagram" size={14} class="text-white" />
+        </a>
+        <a href="#" class="w-9 h-9 rounded-full bg-neutral-800 flex items-center justify-center hover:bg-neutral-700 transition-colors" aria-label="Dribbble">
+          <Icon name="simple-icons:dribbble" size={14} class="text-white" />
+        </a>
+      </div>
+    </div>
+    <div>
+      <p class="text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-5">Address</p>
+      <p class="text-sm text-neutral-500 leading-relaxed">47 Wythe Avenue<br />Brooklyn, NY<br />United States 11249</p>
+    </div>
+    <div>
+      <p class="text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-5">Email</p>
+      <p class="text-sm text-neutral-500 leading-relaxed">
+        <a href="mailto:hello@orbitstudio.co" class="hover:text-white transition-colors">hello@orbitstudio.co</a><br />
+        <a href="mailto:press@orbitstudio.co" class="hover:text-white transition-colors">press@orbitstudio.co</a>
+      </p>
+    </div>
+    <div>
+      <p class="text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-5">Phone</p>
+      <p class="text-sm text-neutral-500 leading-relaxed">+1 (718) 555 0421<br />+1 (718) 555 0422</p>
+      <div class="grid grid-cols-2 gap-x-6 gap-y-2.5 mt-7">
+        <a href="#" class="text-sm text-neutral-500 hover:text-white transition-colors">Homepage</a>
+        <a href="#about" class="text-sm text-neutral-500 hover:text-white transition-colors">About</a>
+        <a href="#services" class="text-sm text-neutral-500 hover:text-white transition-colors">Process</a>
+        <a href="#portfolio" class="text-sm text-neutral-500 hover:text-white transition-colors">Case Studies</a>
+        <a href="#experience" class="text-sm text-neutral-500 hover:text-white transition-colors">Resources</a>
+        <a href="#contact" class="text-sm text-neutral-500 hover:text-white transition-colors">Contact</a>
+      </div>
+    </div>
+  </div>
+  <div class="max-w-[1400px] mx-auto px-8 pb-8 border-t border-neutral-800 pt-7 flex items-center justify-between">
+    <p class="text-xs text-neutral-600">All rights reserved &copy; Orbit Studio 2026</p>
+    <p class="text-xs text-neutral-600">Designed with intent.</p>
+  </div>
+</footer>

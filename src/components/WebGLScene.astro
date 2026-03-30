@@ -1,0 +1,69 @@
+<div
+  id="webgl-hero"
+  class="absolute top-0 right-0 w-[50vw] h-[50vw] max-w-[800px] max-h-[800px] z-0 opacity-[0.35] pointer-events-none mix-blend-darken grayscale"
+></div>
+
+<script>
+  import * as THREE from 'three';
+
+  function initWebGL() {
+    const container = document.getElementById('webgl-hero');
+    if (!container) return;
+
+    const width = container.clientWidth;
+    const height = container.clientHeight;
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+
+    renderer.setSize(width, height);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    container.appendChild(renderer.domElement);
+
+    const geometry = new THREE.IcosahedronGeometry(2, 2);
+    const material = new THREE.MeshBasicMaterial({
+      color: 0x171717,
+      wireframe: true,
+      transparent: true,
+      opacity: 0.3,
+    });
+    const sphere = new THREE.Mesh(geometry, material);
+    scene.add(sphere);
+
+    camera.position.z = 5;
+
+    let mouseX = 0;
+    let mouseY = 0;
+    const windowHalfX = window.innerWidth / 2;
+    const windowHalfY = window.innerHeight / 2;
+
+    document.addEventListener('mousemove', (event) => {
+      mouseX = event.clientX - windowHalfX;
+      mouseY = event.clientY - windowHalfY;
+    });
+
+    function animate() {
+      requestAnimationFrame(animate);
+      const targetX = mouseX * 0.001;
+      const targetY = mouseY * 0.001;
+      sphere.rotation.y += 0.003;
+      sphere.rotation.x += 0.002;
+      sphere.rotation.y += 0.05 * (targetX - sphere.rotation.y);
+      sphere.rotation.x += 0.05 * (targetY - sphere.rotation.x);
+      renderer.render(scene, camera);
+    }
+
+    animate();
+
+    window.addEventListener('resize', () => {
+      const newWidth = container.clientWidth;
+      const newHeight = container.clientHeight;
+      renderer.setSize(newWidth, newHeight);
+      camera.aspect = newWidth / newHeight;
+      camera.updateProjectionMatrix();
+    });
+  }
+
+  initWebGL();
+</script>

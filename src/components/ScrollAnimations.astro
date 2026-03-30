@@ -1,0 +1,136 @@
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* Hero word reveal */
+  const heroWords = document.querySelectorAll('[data-hero]');
+  gsap.to(heroWords, {
+    y: 0,
+    opacity: 1,
+    duration: 1.1,
+    ease: 'power4.out',
+    stagger: 0.14,
+    delay: 0.3,
+  });
+
+  /* Split text into words and reveal on scroll */
+  function splitAndReveal(el: Element) {
+    const text = el.textContent || '';
+    const words = text.split(' ');
+    el.innerHTML = words
+      .map(
+        (w) =>
+          `<span class="line-mask" style="display:inline-block; overflow:hidden; vertical-align:bottom; margin-right:0.25em; margin-bottom:0.05em;">
+            <span class="reveal-word" style="display:inline-block;">${w}</span>
+          </span>`
+      )
+      .join('');
+
+    const revealWords = el.querySelectorAll('.reveal-word');
+    ScrollTrigger.create({
+      trigger: el,
+      start: 'top 82%',
+      onEnter: () => {
+        gsap.to(revealWords, {
+          y: 0,
+          opacity: 1,
+          duration: 0.85,
+          ease: 'power3.out',
+          stagger: 0.06,
+        });
+      },
+      once: true,
+    });
+  }
+
+  document.querySelectorAll('.reveal-text').forEach((el) => splitAndReveal(el));
+
+  /* Fade-in on scroll */
+  document.querySelectorAll('.reveal-fade').forEach((el) => {
+    gsap.fromTo(
+      el,
+      { opacity: 0, y: 28 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.9,
+        ease: 'power3.out',
+        scrollTrigger: { trigger: el, start: 'top 86%', once: true },
+      }
+    );
+  });
+
+  /* Number reveal */
+  document.querySelectorAll('.reveal-num').forEach((el) => {
+    gsap.fromTo(
+      el,
+      { opacity: 0, y: 50 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1.0,
+        ease: 'power4.out',
+        scrollTrigger: { trigger: el, start: 'top 85%', once: true },
+      }
+    );
+  });
+
+  /* Experience row slide-in */
+  document.querySelectorAll('.reveal-exp').forEach((el, i) => {
+    gsap.fromTo(
+      el,
+      { opacity: 0, x: -30 },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 0.75,
+        ease: 'power3.out',
+        delay: i * 0.08,
+        scrollTrigger: { trigger: el, start: 'top 88%', once: true },
+      }
+    );
+  });
+
+  /* Parallax backgrounds */
+  gsap.to('#heroBgImg', {
+    y: '22%',
+    ease: 'none',
+    scrollTrigger: {
+      trigger: 'body',
+      start: 'top top',
+      end: 'bottom bottom',
+      scrub: true,
+    },
+  });
+
+  gsap.to('#ctaBgImg', {
+    y: '-15%',
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '#ctaBg',
+      start: 'top bottom',
+      end: 'bottom top',
+      scrub: true,
+    },
+  });
+
+  /* Portfolio image scale */
+  document.querySelectorAll('.portfolio-item .img-reveal-inner').forEach((img) => {
+    gsap.fromTo(
+      img,
+      { scale: 1.12 },
+      {
+        scale: 1,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: img,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true,
+        },
+      }
+    );
+  });
+</script>
